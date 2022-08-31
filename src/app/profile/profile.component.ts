@@ -8,15 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
   constructor() {}
   user: any[] = [];
-  curr_username: string = '123';
+  curr_username: string = '';
   curr_birthdate: string = '';
   curr_age: any = null; // dn't know how to initialise number
   curr_email: string = '';
+  is_user = this.check_user();
+  my_username = '';
 
   getData() {
     let data = sessionStorage.getItem('user_data') || '{}';
     this.user = JSON.parse(data);
     console.log('User Data is: ', this.user);
+
     return this.user;
   }
 
@@ -34,6 +37,20 @@ export class ProfileComponent implements OnInit {
     //sessionStorage.setItem('user_data', JSON.stringify(data))
   }
 
+  check_user() {
+    console.log('User length is : ', this.user.length);
+    console.log('user is  : ', this.user);
+    console.log('user is : ', this.is_user);
+    if (this.user.length == 0 || this.user.length == undefined) {
+      console.log('FALSE IS RETURNED ');
+      return false;
+    }
+
+    return true;
+  }
+  ngDoCheck() {
+    this.is_user = this.check_user();
+  }
   ngOnInit(): void {
     this.getData();
   }

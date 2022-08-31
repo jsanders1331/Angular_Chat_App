@@ -9,5 +9,7 @@ export class AppComponent {
   title = 'week4tut';
   logOut() {
     sessionStorage.clear();
+
+    alert('You are now logged out');
   }
 }

@@ -4,3 +4,31 @@
 .showmessage {
   display: block;
 }
+
+.loginForm {
+  position: absolute;
+  left: 50px;
+  width: 150px;
+
+  margin: 10px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+#user_pass {
+  margin: 8px;
+}
+#user_name {
+  margin: 8px;
+}
+#user_login {
+  margin: 8px;
+}
+#login_header {
+  position: absolute;
+  left: 50px;
+}

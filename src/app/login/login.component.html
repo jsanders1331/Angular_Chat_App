@@ -1,13 +1,29 @@
-<p>Welcome Login</p>
-<form
-  action="http://localhost:3000/api/auth"
-  method="post"
-  (ngSubmit)="submit()"
->
-  <input type="text" [(ngModel)]="username" name="username" />
-  <input type="text" [(ngModel)]="password" name="password" />
-  <input type="submit" value="submit" />
-  <br />
+<h4 id="login_header">Please Login to Chat Service</h4>
+<div class="loginForm">
+  <form
+    action="http://localhost:3000/api/auth"
+    method="post"
+    (ngSubmit)="submit()"
+    ngNativeValidate
+  >
+    <br />
+    <input
+      id="user_name"
+      type="text"
+      [(ngModel)]="username"
+      name="username"
+      required="required"
+    />
+    <input
+      id="user_pass"
+      type="text"
+      [(ngModel)]="password"
+      name="password"
+      required="required"
+    />
+    <button id="user_login" type="submit" value="submit">Login</button>
+    <br />
 
-  <!-- <p *ngIf="loggedIn()" [ngClass]="cardClasses()">Error authenticating</p> -->
-</form>
+    <!-- <p *ngIf="loggedIn()" [ngClass]="cardClasses()">Error authenticating</p> -->
+  </form>
+</div>

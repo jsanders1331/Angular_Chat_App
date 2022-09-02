@@ -1,38 +1,30 @@
 <table>
   <h4>Admins</h4>
-  <tr>
-    <td>
-      <img
-        src="https://freesvg.org/img/abstract-user-flat-4.png"
-        alt=""
-        width="50"
-      />
-    </td>
-    <td>Jane Smith</td>
-    <td>Software Engineer</td>
-  </tr>
-  <tr>
-    <td>
-      <img
-        src="https://freesvg.org/img/abstract-user-flat-4.png"
-        alt=""
-        width="50"
-      />
-    </td>
-    <td>Jane Smith</td>
-    <td>Software Engineer</td>
-  </tr>
-  <tr>
-    <td>
-      <img
-        src="https://freesvg.org/img/abstract-user-flat-4.png"
-        alt=""
-        width="50"
-      />
-    </td>
-    <td>Jane Smith</td>
-    <td>Software Engineer</td>
-  </tr>
-
-  <h4>Members</h4>
+  <div *ngFor="let user of users; let i = index">
+    <tr *ngIf="users[i].role == 'admin'">
+      <td>
+        <img
+          src="https://freesvg.org/img/abstract-user-flat-4.png"
+          alt=""
+          width="50"
+        />
+      </td>
+      <td>{{ user.username }}</td>
+    </tr>
+  </div>
+  <h4>Users</h4>
+  <div *ngFor="let user of users; let i = index">
+    <tr *ngIf="users[i].role == 'user'">
+      <td>
+        <img
+          src="https://freesvg.org/img/abstract-user-flat-4.png"
+          alt=""
+          width="50"
+        />
+      </td>
+      <td>{{ user.username }}</td>
+    </tr>
+  </div>
 </table>
+
+<button (click)="test()">Click test</button>

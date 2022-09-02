@@ -8,8 +8,6 @@
   <span class="time-left">11:01</span>
 </div>
 
-<app-userlist></app-userlist>
-
 <div *ngFor="let chat of chatlog">
   <div class="container">
     <p>{{ chat.message }}</p>
@@ -23,3 +21,5 @@
 >
   Send Message
 </button>
+<br />
+<app-userlist></app-userlist>

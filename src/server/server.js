@@ -17,6 +17,24 @@ var users = [
     valid: false,
     role: "admin",
   },
+  {
+    username: "Joe",
+    birthdate: "01/02/03",
+    age: 5,
+    email: "joe@123",
+    password: "123",
+    valid: false,
+    role: "user",
+  },
+  {
+    username: "Billy",
+    birthdate: "01/02/03",
+    age: 5,
+    email: "Billy@123",
+    password: "123",
+    valid: false,
+    role: "user",
+  },
 ];
 
 app.use(cors());

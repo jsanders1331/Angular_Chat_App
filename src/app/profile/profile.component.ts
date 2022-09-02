@@ -18,8 +18,7 @@ export class ProfileComponent implements OnInit {
   getData() {
     let data = sessionStorage.getItem('user_data') || '{}';
     this.user = JSON.parse(data);
-    console.log('User Data is: ', this.user);
-
+    console.log(this.user[0].valid);
     return this.user;
   }
 
@@ -38,9 +37,6 @@ export class ProfileComponent implements OnInit {
   }
 
   check_user() {
-    console.log('User length is : ', this.user.length);
-    console.log('user is  : ', this.user);
-    console.log('user is : ', this.is_user);
     if (this.user.length == 0 || this.user.length == undefined) {
       console.log('FALSE IS RETURNED ');
       return false;

@@ -15,6 +15,7 @@ var users = [
     email: "john@123",
     password: "123",
     valid: false,
+    role: "admin",
   },
 ];
 

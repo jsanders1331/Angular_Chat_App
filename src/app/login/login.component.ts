@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
               );
               console.log('hello', this.fetchedData);
               this.loggedIn();
-              this.router.navigate(['/profile']);
+              this.router.navigate(['/chatbox']); // navigate to chatbox
               return true;
             } else {
               this.authenticated = false;

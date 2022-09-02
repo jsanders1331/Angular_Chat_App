@@ -7,8 +7,19 @@ import { UserlistComponent } from '../userlist/userlist.component';
 })
 export class ChatboxComponent implements OnInit {
   constructor() {}
+  d = new Date();
+  currentTime = this.d.toLocaleTimeString();
 
-  chatlog = ['Hello. How are you today?'];
+  currentMessage = '';
+  chatlog: any = [];
+
+  sendMessage() {
+    console.log(this.currentTime);
+    this.chatlog.push({
+      message: this.currentMessage,
+      time: this.d.toLocaleTimeString(),
+    });
+  }
 
   ngOnInit(): void {}
 }

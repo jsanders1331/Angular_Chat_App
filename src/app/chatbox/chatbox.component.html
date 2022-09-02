@@ -18,8 +18,18 @@
   <span class="time-left">11:05</span>
 </div>
 
-<input type="text" name="send_message" /><button type="submit">
+<app-userlist></app-userlist>
+
+<div *ngFor="let chat of chatlog">
+  <div class="container">
+    <p>{{ chat.message }}</p>
+    <span class="time-right">{{ chat.time }}</span>
+  </div>
+</div>
+
+<input type="text" name="send_message" [(ngModel)]="currentMessage" /><button
+  type="submit"
+  (click)="sendMessage()"
+>
   Send Message
 </button>
-
-<app-userlist></app-userlist>

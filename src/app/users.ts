@@ -1,17 +1,36 @@
 export class Users {
-  username: string = '';
-  email: string = '';
-  id: string = '';
-  role = '';
+  info: any = { username: '', email: '', id: '', role: '' };
 }
 
 export class SuperUser extends Users {
-  override role = 'admin';
+  constructor() {
+    super();
+    this.info.role = 'admin';
+  }
 
-  createUser() {
+  createUser(user: any, username: any, email: any, role: any) {
+    // create a new Users instance and push it to the users array.
     let usr = new Users();
-    usr.username = 'test';
-    return usr;
+    if (!username || !email || !role) {
+      console.log('error no user data was input');
+      return;
+    }
+    usr.info.username = username;
+    usr.info.email = email;
+    usr.info.id = username;
+    usr.info.role = role;
+    if (user.find((e: any) => e.username == usr.info.username)) {
+      // if username exists we don't want to create it again.
+      console.log(user);
+      console.log('Already exists cannot create');
+      return;
+    }
+    user.push(usr.info);
+    console.log(
+      'creating new user and updating session storage... (users.tsc) '
+    );
+    sessionStorage.setItem('user_data', JSON.stringify(user)); //
+    console.log('UserLIST Data is: ', user);
   }
   //myArray.splice(myArray.findIndex(item => item.field === "cStatus"), 1)
   removeUser(name: string, data: any[]) {
@@ -36,4 +55,4 @@ export class SuperUser extends Users {
 export class GroupUser {}
 
 let user = new SuperUser();
-console.log(user.role);
+console.log(user.info.role);

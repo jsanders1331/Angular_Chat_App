@@ -26,5 +26,12 @@
     </tr>
   </div>
 </table>
+<div>
+  <input type="text" placeholder="Username" [(ngModel)]="usersName" /><br />
+  <input type="text" placeholder="Password" [(ngModel)]="usersPassword" /><br />
+  <input type="text" placeholder="Role" [(ngModel)]="usersRole" /><br />
+  <input type="text" placeholder="ID" [(ngModel)]="usersID" /> <br />
+  <button (click)="updateUsers()">Add user</button>
+</div>
 
 <button (click)="test()">Click test</button>

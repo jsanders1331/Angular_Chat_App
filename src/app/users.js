@@ -18,10 +18,7 @@ exports.__esModule = true;
 exports.GroupUser = exports.SuperUser = exports.Users = void 0;
 var Users = /** @class */ (function () {
     function Users() {
-        this.username = '';
-        this.email = '';
-        this.id = '';
-        this.role = '';
+        this.info = { username: '', email: '', id: '', role: '' };
     }
     return Users;
 }());
@@ -29,10 +26,37 @@ exports.Users = Users;
 var SuperUser = /** @class */ (function (_super) {
     __extends(SuperUser, _super);
     function SuperUser() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.role = 'admin';
+        var _this = _super.call(this) || this;
+        _this.info.role = 'admin';
         return _this;
     }
+    SuperUser.prototype.createUser = function (user) {
+        // create a new Users instance and push it to the users array.
+        var usr = new Users();
+        usr.info.username = 'test';
+        user.push(usr.info);
+        console.log('creating new user and updating session storage... ');
+        sessionStorage.setItem('user_data', JSON.stringify(user));
+        console.log('UserLIST Data is: ', user);
+    };
+    //myArray.splice(myArray.findIndex(item => item.field === "cStatus"), 1)
+    SuperUser.prototype.removeUser = function (name, data) {
+        var user_array = [];
+        data.find(function (user, index) {
+            //console.log('NAME, IDX ', user, index);
+            if (user == undefined || user.username == undefined) {
+                // error check
+                return;
+            }
+            if (user.username == name) {
+                // name found
+                data.splice(index, 1); // delete this index
+                user_array = data; // new data
+                sessionStorage.setItem('user_data', JSON.stringify(user_array)); // refresh the session storage.
+                return user_array;
+            }
+        });
+    };
     return SuperUser;
 }(Users));
 exports.SuperUser = SuperUser;
@@ -43,4 +67,4 @@ var GroupUser = /** @class */ (function () {
 }());
 exports.GroupUser = GroupUser;
 var user = new SuperUser();
-console.log(user.role);
+console.log(user.info.role);

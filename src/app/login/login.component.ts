@@ -16,12 +16,14 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute) {}
   loggedIn() {
+    // this never runs .
     if (sessionStorage.getItem('user_data') == null) {
       return true;
     }
     console.log(sessionStorage.getItem('user_data'));
     var data = sessionStorage.getItem('user_data') || '{}';
     var data_JSON = JSON.parse(data);
+
     return data_JSON[0].valid;
   }
 
@@ -46,23 +48,25 @@ export class LoginComponent implements OnInit {
           .json()
           .then((data) => (this.fetchedData = data))
           .then((data) => {
-            if (data[0].valid) {
-              // check if user is authenticated
-              console.log('Authenticated');
-              sessionStorage.clear(); // clear session storage for purpose of the application.
-              this.authenticated = true;
-              sessionStorage.setItem(
-                'user_data',
-                JSON.stringify(this.fetchedData)
-              );
-              console.log('hello', this.fetchedData);
-              this.loggedIn();
-              this.router.navigate(['/chatbox']); // navigate to chatbox
-              return true;
-            } else {
-              this.authenticated = false;
-              return false;
+            console.log(data);
+            for (let i = 0; i < data.length; i++) {
+              if (data[i].valid) {
+                // check if user is authenticated
+                console.log('Authenticated');
+                sessionStorage.clear(); // clear session storage for purpose of the application.
+                this.authenticated = true;
+                sessionStorage.setItem(
+                  'user_data',
+                  JSON.stringify(this.fetchedData)
+                );
+                console.log('hello', this.fetchedData);
+                this.loggedIn();
+                this.router.navigate(['/chatbox']); // navigate to chatbox
+                return true;
+              }
             }
+            this.authenticated = false;
+            return false;
           })
       );
 

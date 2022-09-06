@@ -26,12 +26,17 @@
     </tr>
   </div>
 </table>
-<div>
+
+<div *ngIf="is_user_auth">
+  <h3>User Management</h3>
   <input type="text" placeholder="Username" [(ngModel)]="usersName" /><br />
   <input type="text" placeholder="Password" [(ngModel)]="usersPassword" /><br />
   <input type="text" placeholder="Role" [(ngModel)]="usersRole" /><br />
   <input type="text" placeholder="ID" [(ngModel)]="usersID" /> <br />
   <button (click)="updateUsers()">Add user</button>
+  <button (click)="remove()">Remove User</button>
 </div>
-
+<div *ngIf="is_user_auth == false">
+  User Management Panel is disabled due to invalid permissions.
+</div>
 <button (click)="test()">Click test</button>

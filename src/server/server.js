@@ -7,7 +7,13 @@ const https = require("https");
 const fs = require("fs");
 const PORT = 3000;
 
-var users = [
+var jsonFile = fs.readFileSync("./users.txt").toString("utf-8");
+jsonFile = JSON.parse(jsonFile);
+var users = jsonFile.Users;
+//console.log(users.Users);
+
+/*
+[
   {
     username: "John",
     birthdate: "01/02/03",
@@ -36,6 +42,7 @@ var users = [
     role: "user",
   },
 ];
+*/
 
 app.use(cors());
 

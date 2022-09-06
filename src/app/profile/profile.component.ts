@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
   constructor() {}
   user: any[] = [];
+
   curr_username: string = '';
   curr_birthdate: string = '';
   curr_age: any = null; // dn't know how to initialise number

@@ -42,4 +42,7 @@ export class AppComponent {
       }
     }
   }
+  ngOnInit(): void {
+    sessionStorage.setItem('admins', '12345'); // OK LETS READ A JSON FILE AND THEN STORE IT IN SESSION STORAGE.
+  }
 }

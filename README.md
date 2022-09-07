@@ -1,4 +1,4 @@
-# Week4tut
+# My-Chat-App
 
 #Angular and Node Architecture 
 ## Node Server side – Rest API 

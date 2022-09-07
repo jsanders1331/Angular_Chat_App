@@ -63,9 +63,12 @@ app.get("/", (req, res) => {
 });
 
 app.post("/api/auth", (req, res) => {
-  //console.log(req.body.username); // communication
+  console.log(req.body); // communication
 
-  const user_data = users.find((user) => user.username == req.body.username); // check for authentication, will return undefined if not found, .find uses testing function.
+  const user_data = users.find(
+    (user) =>
+      user.username == req.body.username && user.password == req.body.password
+  ); // check for authentication, will return undefined if not found, .find uses testing function.
   idx = users.findIndex((user) => user.username == req.body.username); // index that this was found.
 
   if (user_data) {

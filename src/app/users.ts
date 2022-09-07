@@ -9,6 +9,7 @@ export class SuperUser extends Users {
   }
 
   createUser(user: any, username: any, email: any, role: any) {
+    // 1 array 3 parameters
     // create a new Users instance and push it to the users array.
     let usr = new Users();
     if (!username || !email || !role) {
@@ -20,12 +21,13 @@ export class SuperUser extends Users {
     usr.info.id = username;
     usr.info.role = role;
     if (user.find((e: any) => e.username == usr.info.username)) {
+      // check if user exists
       // if username exists we don't want to create it again.
       console.log(user);
       console.log('Already exists cannot create');
       return;
     }
-    user.push(usr.info);
+    user.push(usr.info); // push to
     console.log(
       'creating new user and updating session storage... (users.tsc) '
     );

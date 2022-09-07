@@ -7,7 +7,8 @@
       "email": "john@123",
       "password": "123",
       "valid": false,
-      "role": "admin"
+      "role": "admin",
+      "group": "3"
     },
     {
       "username": "Joe",
@@ -16,7 +17,8 @@
       "email": "joe@123",
       "password": "123",
       "valid": false,
-      "role": "user"
+      "role": "user",
+      "group": "1"
     },
     {
       "username": "Billy",
@@ -25,7 +27,8 @@
       "email": "Billy@123",
       "password": "123",
       "valid": false,
-      "role": "user"
+      "role": "user",
+      "group": "2"
     }
   ]
 }

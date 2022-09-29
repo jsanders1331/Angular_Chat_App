@@ -7,18 +7,21 @@
   <p>Hey!</p>
   <span class="time-left">11:01</span>
 </div>
-
-<div *ngFor="let chat of chatlog">
-  <div class="container">
-    <p>{{ chat.message }}</p>
-    <span class="time-right">{{ chat.time }}</span>
+<div class="form-group">
+  <div *ngFor="let chat of chatlog">
+    <div class="container">
+      <p>{{ chat.message }}</p>
+      <span class="time-right">{{ chat.time }}</span>
+    </div>
   </div>
 </div>
 
-<input type="text" name="send_message" [(ngModel)]="currentMessage" /><button
-  type="submit"
-  (click)="sendMessage()"
->
+<input
+  type="text"
+  name="send_message"
+  class="form-control"
+  [(ngModel)]="messagecontent"
+/><button type="submit" class="btn btn-primary" (click)="chat()">
   Send Message
 </button>
 <br />

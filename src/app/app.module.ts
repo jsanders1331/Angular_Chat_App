@@ -9,11 +9,19 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChatboxComponent } from './chatbox/chatbox.component';
 import { UserlistComponent } from './userlist/userlist.component';
+import { SocketService } from './services/socket.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ProfileComponent, ChatboxComponent, UserlistComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    ProfileComponent,
+    ChatboxComponent,
+    UserlistComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  providers: [SocketService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

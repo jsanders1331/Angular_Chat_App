@@ -2,47 +2,35 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const http = require("http");
+const http = require("http").Server(app);
 const https = require("https");
 const fs = require("fs");
 const PORT = 3000;
+const io = require("socket.io")(http, {
+  cors: {
+    origin: "http://localhost:4200",
+    methods: ["GET", "POST"],
+  },
+});
+const sockets = require("./socket/socket.js");
+const server = require("./socket/listen.js");
 
+sockets.connect(io, PORT);
+server.listen(http, PORT);
+
+const readUser = require("./database/read");
+/*
 var jsonFile = fs.readFileSync("./users.txt").toString("utf-8");
 jsonFile = JSON.parse(jsonFile);
 var users = jsonFile.Users;
-//console.log(users.Users);
-
-/*
-[
-  {
-    username: "John",
-    birthdate: "01/02/03",
-    age: 5,
-    email: "john@123",
-    password: "123",
-    valid: false,
-    role: "admin",
-  },
-  {
-    username: "Joe",
-    birthdate: "01/02/03",
-    age: 5,
-    email: "joe@123",
-    password: "123",
-    valid: false,
-    role: "user",
-  },
-  {
-    username: "Billy",
-    birthdate: "01/02/03",
-    age: 5,
-    email: "Billy@123",
-    password: "123",
-    valid: false,
-    role: "user",
-  },
-];
 */
+var users;
+var getUsers = async function () {
+  let x;
+  x = await readUser();
+  return Promise.all(x);
+};
+users = getUsers();
 
 app.use(cors());
 
@@ -52,18 +40,25 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+/*
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
-
+*/
 // respond with "hello world" when a GET request is made to the homepage
 app.get("/", (req, res) => {
+  console.log(users);
+  users.then((data) => console.log(data));
   console.log("Server is running at port", PORT);
   res.send("hello world");
 });
 
-app.post("/api/auth", (req, res) => {
+app.post("/api/auth", async (req, res) => {
+  // make the call asynchronous
   console.log(req.body); // communication
+  var users = await getUsers();
+  console.log(users[0].Users);
+  users = users[0].Users;
 
   const user_data = users.find(
     (user) =>

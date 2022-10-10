@@ -21,6 +21,8 @@ server.listen(http, PORT);
 
 app.use(cors());
 
+app.use(express.static(__dirname + "/uploads"));
+
 // MONGOOSE
 
 var mongoose = require("mongoose");

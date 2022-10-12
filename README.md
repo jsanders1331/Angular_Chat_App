@@ -1,6 +1,6 @@
 # My-Chat-App
-Installation: 
-npm installl bootstrap jquery popper.js @types/jquery socket.io-client socket.io @types/socket.io-client express cors body-parser --save
+##Installation: 
+npm installl bootstrap jquery socket.io-client socket.io @types/socket.io-client express cors body-parser mongodb
 
 
 ## Development server
@@ -14,6 +14,10 @@ To install
 `npm install -g nodemon`
 
 ## Back-end server
+
+## MongoDB
+
+This application uses mongoDB. run npm install mongodb. Run the addUser.js script to initialise the data.
 
 Run `nodemon server/servser.js` from the project root directory. The back-end server starts at `http://localhost:3000/`. 
 

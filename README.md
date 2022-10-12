@@ -1,4 +1,21 @@
 # My-Chat-App
+Installation: 
+npm installl bootstrap jquery popper.js @types/jquery socket.io-client socket.io @types/socket.io-client express cors body-parser --save
+
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Nodemon
+
+Nodemon is required for this project to run the server and monitor the file changes at backend. For more information visit [Nodemon homepage](https://nodemon.io).
+To install
+`npm install -g nodemon`
+
+## Back-end server
+
+Run `nodemon server/servser.js` from the project root directory. The back-end server starts at `http://localhost:3000/`. 
 
 #Angular and Node Architecture 
 ## Node Server side – Rest API 

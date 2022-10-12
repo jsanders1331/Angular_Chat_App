@@ -29,3 +29,17 @@ td:nth-child(3) {
   padding-top: 6px;
   border-bottom: solid grey 2px;
 }
+
+.circular--landscape {
+  display: inline-block;
+  position: relative;
+  width: 50;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.circular--landscape img {
+  width: auto;
+  height: 100%;
+  margin-left: -50px;
+}

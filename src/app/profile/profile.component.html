@@ -28,3 +28,50 @@
     </div>
   </div>
 </div>
+
+<h3>Your Profile Picture.</h3>
+<br />
+<img src="http://localhost:3000/{{ url }}" id="myImage" />
+<!--
+<input
+  type="file"
+  class="file-upload"
+  onchange="console.log(event.target.files)"
+  (change)="onSelect(event)"
+/>
+-->
+
+<div style="text-align: center">
+  <form>
+    <div>
+      <input type="file" name="image" (change)="selectImage($event)" />
+    </div>
+    <br />
+    <div>
+      <button type="submit" (click)="onSubmit()">Upload</button>
+    </div>
+  </form>
+</div>
+
+<hr />
+<!-- 
+<h2 style="text-align: center">Multiple</h2>
+<div style="text-align: center">
+  <form>
+    <div>
+      <input
+        type="file"
+        name="images"
+        multiple
+        (change)="selectMultipleImage($event)"
+      />
+    </div>
+    <br />
+    <div>
+      <button type="submit" (click)="onMultipleSubmit()">
+        Multiple Upload
+      </button>
+    </div>
+  </form>
+</div>
+-->

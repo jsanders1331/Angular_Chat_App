@@ -11,7 +11,7 @@ export class ChatboxComponent implements OnInit {
   constructor(private socketService: SocketService) {}
   d = new Date();
   currentTime = this.d.toLocaleTimeString();
-
+  currentUser: any;
   currentMessage = '';
   chatlog: any = [];
 
@@ -35,6 +35,8 @@ export class ChatboxComponent implements OnInit {
       console.log('no message');
     }
   }
+
+  getCurrUser() {}
 
   private initIoConnection() {
     this.socketService.initSocket();

@@ -21,10 +21,10 @@ server.listen(http, PORT);
 
 app.use(cors());
 
-app.use(express.static(__dirname + "/uploads"));
+app.use(express.static(__dirname + "/uploads")); // for the image directory
 
 // MONGOOSE
-
+/*
 var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/node-file-upl", {
   useNewUrlParser: true,
@@ -46,6 +46,7 @@ var imageSchema = new mongoose.Schema({
     contentType: String,
   },
 });
+*/
 
 // STORAGE
 const storage = multer.diskStorage({

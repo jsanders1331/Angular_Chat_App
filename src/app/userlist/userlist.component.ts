@@ -13,6 +13,8 @@ export class UserlistComponent implements OnInit {
   permissions: boolean = false;
   currentUser = this.getData();
 
+  myImage: any = '';
+
   constructor() {}
   d = new SuperUser();
   users = this.getData(); // idk how angular works but this will run if page is refreshed so it will reset data? []
@@ -68,6 +70,13 @@ export class UserlistComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let x = sessionStorage.getItem('profileImage');
+    console.log(x);
+    if (x != null) {
+      this.myImage = x;
+    } else {
+      this.myImage = 'https://freesvg.org/img/abstract-user-flat-4.png';
+    }
     //sessionStorage.set('admins'); // OK LETS READ A JSON FILE AND THEN STORE IT IN SESSION STORAGE.
   }
 }

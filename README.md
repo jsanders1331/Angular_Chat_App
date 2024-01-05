@@ -1,6 +1,6 @@
 # My-Chat-App
 ## Installation: 
-npm installl bootstrap jquery socket.io-client socket.io @types/socket.io-client express cors body-parser mongodb
+required: bootstrap jquery socket.io-client socket.io @types/socket.io-client express cors body-parser mongodb
 
 
 ## Development server
